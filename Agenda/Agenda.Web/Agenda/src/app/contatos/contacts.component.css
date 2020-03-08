@@ -1,0 +1,12 @@
+table{
+    width: 100%;
+}
+
+.top-50{
+    top: 50px;
+}
+
+.btn-right{
+    float: right;
+    margin-top: 15px;
+}

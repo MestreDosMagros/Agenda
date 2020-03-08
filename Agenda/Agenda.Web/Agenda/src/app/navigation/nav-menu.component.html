@@ -1,0 +1,11 @@
+<mat-toolbar>
+    <span>Agenda</span>
+    <span class="fill-space"></span>
+    <span class="margin-15" *ngIf="user_autenticated()"> Hello {{user().username}}</span>
+    <span *ngIf="user_autenticated()">
+        <a class="a" (click)="logout()">Logout</a>
+    </span>
+    <span *ngIf="!user_autenticated()">
+        <span [routerLink]='["/login"]'>Login</span>
+    </span>
+</mat-toolbar>

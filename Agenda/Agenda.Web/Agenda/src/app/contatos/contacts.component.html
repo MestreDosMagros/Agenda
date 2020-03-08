@@ -1,0 +1,37 @@
+<div class="col-md-8 col-xs-6 col-sm-6 offset-md-2 top-50">
+    <div *ngIf="contacts">
+        <table mat-table [dataSource]="contacts" class="mat-elevation-z8">
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let contact"> {{contact.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let contact"> {{contact.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Phone </th>
+                <td mat-cell *matCellDef="let contact"> {{contact.phone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let contact">
+                    <button (click)="editContact(contact)">Edit</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let contact">
+                    <button (click)="deleteContact(contact.id)">Delete</button> </td>
+            </ng-container>
+        </table>
+    </div>
+    <button (click)="createNewContact()" class="btn btn-primary btn-right">Create new contact</button>
+</div>
